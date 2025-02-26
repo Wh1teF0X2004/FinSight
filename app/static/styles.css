@@ -11,7 +11,7 @@ body {
 .dashboard {
     max-width: 1200px;
     margin: 100px auto 50px; /* Adjust margin to accommodate the top bar */
-    padding: 20px;
+    padding: 20px 20px 20px 20px; 
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s, color 0.3s;
