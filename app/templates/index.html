@@ -5,17 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Financial Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Select2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- Chart.js and Plugins -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
 </head>
 <body>
+    <!-- Menu Button -->
+    <!-- <button id="menu-button" class="menu-button">☰</button> -->
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <h2>Dashboard Menu</h2>
+        <!-- <button id="close-sidebar" class="close-sidebar">×</button> -->
+        <ul>
+            <li><a href="#stock-section">Stock Prices</a></li>
+            <li><a href="#crypto-section">Cryptocurrency Trends</a></li>
+            <li><a href="#economic-section">Economic Indicators</a></li>
+        </ul>
+        <button id="theme-switcher">Switch to Dark Theme</button>
+    </div>
+
+    <!-- Main Content -->
     <div class="dashboard">
         <h1>Financial Dashboard</h1>
         
         <!-- Stock Data Section -->
-        <div class="section">
+        <div class="section" id="stock-section">
             <h2>Stock Prices</h2>
             <label for="stock-ticker">Select Stock:</label>
-            <select id="stock-ticker">
+            <select id="stock-ticker" class="js-example-basic-multiple" multiple="multiple">
                 <option value="AAPL">Apple (AAPL)</option>
                 <option value="GOOGL">Google (GOOGL)</option>
                 <option value="TSLA">Tesla (TSLA)</option>
@@ -31,10 +51,10 @@
         </div>
 
         <!-- Cryptocurrency Data Section -->
-        <div class="section">
+        <div class="section" id="crypto-section">
             <h2>Cryptocurrency Trends</h2>
             <label for="crypto-ticker">Select Cryptocurrency:</label>
-            <select id="crypto-ticker">
+            <select id="crypto-ticker" class="js-example-basic-multiple" multiple="multiple">
                 <option value="bitcoin">Bitcoin</option>
                 <option value="ethereum">Ethereum</option>
                 <option value="ripple">Ripple</option>
@@ -47,10 +67,10 @@
         </div>
 
         <!-- Economic Indicators Section -->
-        <div class="section">
+        <div class="section" id="economic-section">
             <h2>Economic Indicators</h2>
             <label for="economic-indicator">Select Indicator:</label>
-            <select id="economic-indicator">
+            <select id="economic-indicator" class="js-example-basic-multiple" multiple="multiple">
                 <option value="GDP">GDP</option>
                 <option value="INFLATION">Inflation</option>
                 <option value="UNEMPLOYMENT">Unemployment Rate</option>
@@ -61,6 +81,44 @@
         </div>
     </div>
 
+    <!-- jQuery (required for Select2) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Select2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <!-- Custom Script -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        // Initialize Select2 for all multi-select dropdowns
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2({
+                placeholder: "Select options", // Placeholder text
+                allowClear: true // Allow clearing selections
+            });
+        });
+
+        // Theme Switcher
+        const themeSwitcher = document.getElementById("theme-switcher");
+        themeSwitcher.addEventListener("click", () => {
+            document.body.classList.toggle("dark-theme");
+            if (document.body.classList.contains("dark-theme")) {
+                themeSwitcher.textContent = "Switch to Light Theme";
+            } else {
+                themeSwitcher.textContent = "Switch to Dark Theme";
+            }
+        });
+
+        // Sidebar Toggle
+        const menuButton = document.getElementById("menu-button");
+        const sidebar = document.getElementById("sidebar");
+        const closeSidebarButton = document.getElementById("close-sidebar");
+
+        menuButton.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+        });
+
+        closeSidebarButton.addEventListener("click", () => {
+            sidebar.classList.remove("open");
+        });
+    </script>
 </body>
 </html>

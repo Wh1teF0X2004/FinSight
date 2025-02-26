@@ -1,16 +1,22 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .dashboard {
-    max-width: 1200px;
+    width: 1000px; /* Full width including the closed sidebar */
     margin: 50px auto;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s, transform 0.3s; /* Add transition for smooth resizing and shifting */
+    aspect-ratio: 16 / 9; /* Maintain aspect ratio for the main content */
+    position: relative; /* Ensure the dashboard is positioned relative to the sidebar */
+    left: 5px; /* Add padding space between the sidebar and main content */
 }
 
 h1 {
@@ -54,4 +60,126 @@ button:hover {
 canvas {
     margin-top: 20px;
     max-width: 100%;
+}
+
+/* Select2 Custom Styling */
+.select2-container--default .select2-selection--multiple {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #007bff;
+    border: 1px solid #0056b3;
+    color: white;
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    color: white;
+    margin-right: 5px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
+    color: #ffdddd;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -195px; /* Hide sidebar by default, leaving 5px visible */
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s;
+    z-index: 1000; /* Ensure sidebar is above the main content */
+}
+
+.sidebar:hover {
+    left: 0; /* Show sidebar on hover */
+}
+
+.sidebar h2 {
+    margin-top: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+
+#theme-switcher {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#theme-switcher:hover {
+    background-color: #0056b3;
+}
+
+/* Adjust Main Content When Sidebar Opens */
+.sidebar:hover ~ .dashboard {
+    width: 800px; /* Shrink main content width */
+    transform: translateX(200px); /* Shift main content to the right */
+    left: 5px; /* Maintain consistent padding space */
+}
+
+/* Dark Theme Styles */
+body.dark-theme {
+    background-color: #333;
+    color: white;
+}
+
+body.dark-theme .dashboard {
+    background-color: #444;
+    color: white;
+}
+
+body.dark-theme #stock-data,
+body.dark-theme #crypto-data,
+body.dark-theme #economic-data {
+    background-color: #555;
+    border-color: #666;
+}
+
+body.dark-theme .sidebar {
+    background-color: #222;
+}
+
+body.dark-theme .sidebar ul li a {
+    color: white;
+}
+
+body.dark-theme #theme-switcher {
+    background-color: #0056b3;
+}
+
+body.dark-theme #theme-switcher:hover {
+    background-color: #004080;
 }
