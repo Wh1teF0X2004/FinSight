@@ -9,8 +9,9 @@
 
 ## Development Environment & Build
 - IDE: Visual Studio Code (VSC)
+- Virtual Environment: Docker
 - Programming Language(s): Python 3.8+, JavaScript, CSS, HTML
-- Libraries: Dash, Plotly, Pandas, yfinance, Requests, Streamlit
+- Libraries: Dash, Plotly, Pandas, yfinance, Requests, Streamlit, Flask
 
 ## Data Source API
 - Yahoo Finance: For stock prices

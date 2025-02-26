@@ -5,18 +5,24 @@ body {
     margin: 0;
     padding: 0;
     transition: background-color 0.3s, color 0.3s;
+    overflow: hidden; /* Prevent body scrolling */
 }
 
 .dashboard {
-    width: 1000px; /* Full width including the closed sidebar */
-    margin: 50px auto;
+    max-width: 1200px;
+    margin: 100px auto 50px; /* Adjust margin to accommodate the top bar */
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: width 0.3s, transform 0.3s; /* Add transition for smooth resizing and shifting */
-    aspect-ratio: 16 / 9; /* Maintain aspect ratio for the main content */
-    position: relative; /* Ensure the dashboard is positioned relative to the sidebar */
-    left: 5px; /* Add padding space between the sidebar and main content */
+    transition: background-color 0.3s, color 0.3s;
+    height: calc(100vh - 150px); /* Set height to viewport height minus top bar and margins */
+    overflow-y: scroll; /* Enable scrolling */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer and Edge */
+}
+
+.dashboard::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
 }
 
 h1 {
@@ -43,6 +49,7 @@ button {
     background-color: #007bff;
     color: white;
     cursor: pointer;
+    height: 40px; /* Set a fixed height for buttons */
 }
 
 button:hover {
@@ -67,6 +74,9 @@ canvas {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 5px;
+    min-height: 40px; /* Match the height of the "Fetch" button */
+    height: auto; /* Allow height to grow with more selections */
+    line-height: 30px; /* Align text vertically */
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
@@ -75,6 +85,7 @@ canvas {
     color: white;
     border-radius: 5px;
     padding: 2px 5px;
+    margin: 2px; /* Add spacing between selected options */
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
@@ -86,68 +97,61 @@ canvas {
     color: #ffdddd;
 }
 
-/* Sidebar Styles */
-.sidebar {
-    width: 200px;
-    height: 100vh;
+/* Top Bar Menu Styles */
+.topbar {
+    width: 1240px;
+    height: 60px;
     position: fixed;
     top: 0;
-    left: -195px; /* Hide sidebar by default, leaving 5px visible */
+    left: 0;
     background-color: #333;
     color: white;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    transition: left 0.3s;
-    z-index: 1000; /* Ensure sidebar is above the main content */
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000; /* Ensure top bar is above the main content */
 }
 
-.sidebar:hover {
-    left: 0; /* Show sidebar on hover */
+.topbar h2 {
+    margin: 0;
+    font-size: 24px;
 }
 
-.sidebar h2 {
-    margin-top: 0;
-}
-
-.sidebar ul {
+.topbar ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
 }
 
-.sidebar ul li {
-    margin: 15px 0;
+.topbar ul li {
+    margin: 0;
 }
 
-.sidebar ul li a {
+.topbar ul li a {
     color: white;
     text-decoration: none;
     font-size: 16px;
 }
 
-.sidebar ul li a:hover {
+.topbar ul li a:hover {
     text-decoration: underline;
 }
 
 #theme-switcher {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
+    background-color: transparent;
     border: none;
-    border-radius: 5px;
+    color: white;
     cursor: pointer;
-    margin-top: 20px;
+    font-size: 24px;
+    padding: 5px;
 }
 
 #theme-switcher:hover {
-    background-color: #0056b3;
-}
-
-/* Adjust Main Content When Sidebar Opens */
-.sidebar:hover ~ .dashboard {
-    width: 800px; /* Shrink main content width */
-    transform: translateX(200px); /* Shift main content to the right */
-    left: 5px; /* Maintain consistent padding space */
+    color: #ffdddd;
 }
 
 /* Dark Theme Styles */
@@ -168,18 +172,68 @@ body.dark-theme #economic-data {
     border-color: #666;
 }
 
-body.dark-theme .sidebar {
+body.dark-theme .topbar {
     background-color: #222;
 }
 
-body.dark-theme .sidebar ul li a {
+body.dark-theme .topbar ul li a {
     color: white;
 }
 
 body.dark-theme #theme-switcher {
-    background-color: #0056b3;
+    color: white;
 }
 
 body.dark-theme #theme-switcher:hover {
-    background-color: #004080;
+    color: #ffdddd;
+}
+
+/* Dark Theme Styles for Form Elements */
+body.dark-theme select,
+body.dark-theme button {
+    background-color: #555;
+    color: white;
+    border-color: #666;
+}
+
+body.dark-theme select:hover,
+body.dark-theme button:hover {
+    background-color: #666;
+    border-color: #777;
+}
+
+body.dark-theme .select2-container--default .select2-selection--multiple {
+    background-color: #555;
+    border-color: #666;
+    color: white;
+}
+
+body.dark-theme .select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #007bff;
+    border-color: #0056b3;
+    color: white;
+}
+
+body.dark-theme .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    color: white;
+}
+
+body.dark-theme .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
+    color: #ffdddd;
+}
+
+body.dark-theme .select2-dropdown {
+    background-color: #555;
+    border-color: #666;
+    color: white;
+}
+
+body.dark-theme .select2-container--default .select2-results__option {
+    background-color: #555;
+    color: white;
+}
+
+body.dark-theme .select2-container--default .select2-results__option--highlighted {
+    background-color: #007bff;
+    color: white;
 }

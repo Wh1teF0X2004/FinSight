@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Financial Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Select2 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <!-- Chart.js and Plugins -->
@@ -12,19 +14,17 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
 </head>
 <body>
-    <!-- Menu Button -->
-    <!-- <button id="menu-button" class="menu-button">☰</button> -->
-
-    <!-- Sidebar Menu -->
-    <div class="sidebar" id="sidebar">
-        <h2>Dashboard Menu</h2>
-        <!-- <button id="close-sidebar" class="close-sidebar">×</button> -->
+    <!-- Top Bar Menu -->
+    <div class="topbar">
+        <h2>ılıılıılıılıılıılı</h2>
         <ul>
             <li><a href="#stock-section">Stock Prices</a></li>
             <li><a href="#crypto-section">Cryptocurrency Trends</a></li>
             <li><a href="#economic-section">Economic Indicators</a></li>
         </ul>
-        <button id="theme-switcher">Switch to Dark Theme</button>
+        <button id="theme-switcher">
+            <i class="fas fa-sun"></i> <!-- Sun icon for light theme -->
+        </button>
     </div>
 
     <!-- Main Content -->
@@ -98,26 +98,17 @@
 
         // Theme Switcher
         const themeSwitcher = document.getElementById("theme-switcher");
+        const themeIcon = themeSwitcher.querySelector("i");
+
         themeSwitcher.addEventListener("click", () => {
             document.body.classList.toggle("dark-theme");
             if (document.body.classList.contains("dark-theme")) {
-                themeSwitcher.textContent = "Switch to Light Theme";
+                themeIcon.classList.remove("fa-sun");
+                themeIcon.classList.add("fa-moon");
             } else {
-                themeSwitcher.textContent = "Switch to Dark Theme";
+                themeIcon.classList.remove("fa-moon");
+                themeIcon.classList.add("fa-sun");
             }
-        });
-
-        // Sidebar Toggle
-        const menuButton = document.getElementById("menu-button");
-        const sidebar = document.getElementById("sidebar");
-        const closeSidebarButton = document.getElementById("close-sidebar");
-
-        menuButton.addEventListener("click", () => {
-            sidebar.classList.toggle("open");
-        });
-
-        closeSidebarButton.addEventListener("click", () => {
-            sidebar.classList.remove("open");
         });
     </script>
 </body>
