@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Financial Dashboard</h1>
+        
+        <!-- Stock Data Section -->
+        <div class="section">
+            <h2>Stock Prices</h2>
+            <label for="stock-ticker">Select Stock:</label>
+            <select id="stock-ticker">
+                <option value="AAPL">Apple (AAPL)</option>
+                <option value="GOOGL">Google (GOOGL)</option>
+                <option value="TSLA">Tesla (TSLA)</option>
+                <option value="MSFT">Microsoft (MSFT)</option>
+                <option value="AMZN">Amazon (AMZN)</option>
+                <option value="NFLX">Netflix (NFLX)</option>
+                <option value="META">Meta (META)</option>
+                <option value="NVDA">NVIDIA (NVDA)</option>
+            </select>
+            <button id="fetch-stock">Fetch Data</button>
+            <div id="stock-data"></div>
+            <canvas id="stock-chart"></canvas>
+        </div>
+
+        <!-- Cryptocurrency Data Section -->
+        <div class="section">
+            <h2>Cryptocurrency Trends</h2>
+            <label for="crypto-ticker">Select Cryptocurrency:</label>
+            <select id="crypto-ticker">
+                <option value="bitcoin">Bitcoin</option>
+                <option value="ethereum">Ethereum</option>
+                <option value="ripple">Ripple</option>
+                <option value="litecoin">Litecoin</option>
+                <option value="cardano">Cardano</option>
+            </select>
+            <button id="fetch-crypto">Fetch Data</button>
+            <div id="crypto-data"></div>
+            <canvas id="crypto-chart"></canvas>
+        </div>
+
+        <!-- Economic Indicators Section -->
+        <div class="section">
+            <h2>Economic Indicators</h2>
+            <label for="economic-indicator">Select Indicator:</label>
+            <select id="economic-indicator">
+                <option value="GDP">GDP</option>
+                <option value="INFLATION">Inflation</option>
+                <option value="UNEMPLOYMENT">Unemployment Rate</option>
+            </select>
+            <button id="fetch-economic">Fetch Data</button>
+            <div id="economic-data"></div>
+            <canvas id="economic-chart"></canvas>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

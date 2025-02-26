@@ -9,7 +9,7 @@
 
 ## Development Environment & Build
 - IDE: Visual Studio Code (VSC)
-- Programming Language(s): Python 3.8+
+- Programming Language(s): Python 3.8+, JavaScript, CSS, HTML
 - Libraries: Dash, Plotly, Pandas, yfinance, Requests, Streamlit
 
 ## Data Source API
