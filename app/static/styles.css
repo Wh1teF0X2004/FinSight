@@ -5,27 +5,32 @@ body {
     margin: 0;
     padding: 0;
     transition: background-color 0.3s, color 0.3s;
-    overflow: hidden; /* Prevent body scrolling */
+    overflow: hidden; 
 }
 
 .dashboard {
     max-width: 1200px;
-    margin: 100px auto 50px; /* Adjust margin to accommodate the top bar */
+    margin: 100px auto 50px;
     padding: 20px 20px 20px 20px; 
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s, color 0.3s;
-    height: calc(100vh - 150px); /* Set height to viewport height minus top bar and margins */
-    overflow-y: scroll; /* Enable scrolling */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* Internet Explorer and Edge */
+    height: calc(100vh - 150px);
+    overflow-y: scroll;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
 }
 
 .dashboard::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, and Opera */
+    display: none; 
 }
 
 h1 {
+    text-align: center;
+    color: #333;
+}
+
+p {
     text-align: center;
     color: #333;
 }
@@ -49,7 +54,7 @@ button {
     background-color: #007bff;
     color: white;
     cursor: pointer;
-    height: 40px; /* Set a fixed height for buttons */
+    height: 40px;
 }
 
 button:hover {
@@ -74,9 +79,9 @@ canvas {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 5px;
-    min-height: 40px; /* Match the height of the "Fetch" button */
-    height: auto; /* Allow height to grow with more selections */
-    line-height: 30px; /* Align text vertically */
+    min-height: 40px; 
+    height: auto; 
+    line-height: 30px; 
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
@@ -85,7 +90,7 @@ canvas {
     color: white;
     border-radius: 5px;
     padding: 2px 5px;
-    margin: 2px; /* Add spacing between selected options */
+    margin: 2px; 
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
@@ -97,13 +102,12 @@ canvas {
     color: #ffdddd;
 }
 
-/* Top Bar Menu Styles */
-.topbar {
-    width: 1240px;
-    height: 60px;
+/* Footer Styles */
+.footer {
+    width: 100%;
+    height: 40px;
     position: fixed;
-    top: 0;
-    left: 0;
+    bottom: 0;
     background-color: #333;
     color: white;
     padding: 10px 20px;
@@ -111,7 +115,23 @@ canvas {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 1000; /* Ensure top bar is above the main content */
+}
+
+/* Top Bar Menu Styles */
+.topbar {
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    color: white;
+    padding: 10px 10px 10px 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000; 
 }
 
 .topbar h2 {
@@ -141,6 +161,7 @@ canvas {
     text-decoration: underline;
 }
 
+/* Theme Switching Styles */
 #theme-switcher {
     background-color: transparent;
     border: none;

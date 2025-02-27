@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financial Dashboard</title>
+    <title>FinSight</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -16,20 +16,22 @@
 <body>
     <!-- Top Bar Menu -->
     <div class="topbar">
-        <h2>ılıılıılıılıılıılı</h2>
+        <h2>FinSight</h2>
         <ul>
             <li><a href="#stock-section">Stock Prices</a></li>
             <li><a href="#crypto-section">Cryptocurrency Trends</a></li>
             <li><a href="#economic-section">Economic Indicators</a></li>
         </ul>
-        <button id="theme-switcher">
-            <i class="fas fa-sun"></i> <!-- Sun icon for light theme -->
+        <button id="theme-switcher" style="padding-right: 20px;">
+            <i class="fas fa-sun"></i> 
         </button>
     </div>
 
     <!-- Main Content -->
     <div class="dashboard">
-        <h1>Financial Dashboard</h1>
+        <h1>FinSight</h1>
+        <p><i>Stay ahead of the market with FinSight, your all-in-one financial dashboard.</i></p>
+        <p><i>Track real-time stock prices, monitor cryptocurrency trends, and analyze key economic indicators – all in one place.</i></p>
         
         <!-- Stock Data Section -->
         <div class="section" id="stock-section">
@@ -79,6 +81,16 @@
             <div id="economic-data"></div>
             <canvas id="economic-chart"></canvas>
         </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <footer class="text-center text-white">
+            <div class="text-center p-3">
+            © 2025 Designed and Built by:
+            <a class="text-white">Wh1teF0X2004</a>
+            </div>
+        </footer>
     </div>
 
     <!-- jQuery (required for Select2) -->

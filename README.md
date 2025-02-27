@@ -1,4 +1,8 @@
-# Real-Time Data Analysis Financial Dashboard
+# FinSight
+- **Real-Time Data Analysis Financial Dashboard**
+- Running on all addresses (0.0.0.0)
+- Running on `http://127.0.0.1:8520`
+- Running on `http://192.168.0.103:8520`
 
 ## Project Scope & Features
 - Real-time stock price visualization
