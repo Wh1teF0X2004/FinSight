@@ -38,7 +38,7 @@ def fetch_crypto_data(coin_id):
 def fetch_economic_data(indicator):
     try:
         # Use Alpha Vantage API to fetch economic data
-        api_key = "PQ3DBNMURGBNI0UY"
+        api_key = "USE-UR-OWN-KEY"
         if indicator == "GDP":
             url = f"https://www.alphavantage.co/query?function=REAL_GDP&apikey={api_key}"
         elif indicator == "INFLATION":
