@@ -16,7 +16,10 @@
 <body>
     <!-- Top Bar Menu -->
     <div class="topbar">
-        <h2>FinSight</h2>
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='Logo.png') }}" alt="FinSight Logo" class="logo">
+            <img src="{{ url_for('static', filename='Name.png') }}" alt="FinSight Name" class="logo">
+        </div>        
         <ul>
             <li><a href="#stock-section">Stock Prices</a></li>
             <li><a href="#crypto-section">Cryptocurrency Trends</a></li>
@@ -30,8 +33,10 @@
     <!-- Main Content -->
     <div class="dashboard">
         <h1>FinSight</h1>
-        <p><i>Stay ahead of the market with FinSight, your all-in-one financial dashboard.</i></p>
-        <p><i>Track real-time stock prices, monitor cryptocurrency trends, and analyze key economic indicators – all in one place.</i></p>
+        <p><i>
+            Stay ahead of the market with FinSight, your all-in-one financial dashboard. <br>
+            Track real-time stock prices, monitor cryptocurrency trends, and analyze key economic indicators – all in one place.
+        </i></p>
         
         <!-- Stock Data Section -->
         <div class="section" id="stock-section">
