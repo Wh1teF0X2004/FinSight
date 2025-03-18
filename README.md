@@ -13,7 +13,7 @@
 
 ## Development Environment & Build
 - IDE: Visual Studio Code (VSC)
-- Virtual Environment: Docker
+- Deployment: Docker
 - Programming Language(s): Python 3.8+, JavaScript, CSS, HTML
 - Libraries: Dash, Plotly, Pandas, yfinance, Requests, Streamlit, Flask
 
